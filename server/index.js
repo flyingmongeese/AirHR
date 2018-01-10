@@ -27,7 +27,7 @@ app.post('/', (req, res) => {
 });
 
 // this is quite a small change
-var port = process.env.PORT || 3006;
+var port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log('FlyingMongeese listening on PORT 3006!');
+  console.log('FlyingMongeese listening on PORT 3000!');
 });
