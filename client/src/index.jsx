@@ -47,13 +47,17 @@ class App extends React.Component {
   render () {
 
     return (
-
         <div>
+
           <Login  handleLoginSubmit={ this.handleLoginSubmit.bind(this) } />
           {this.switchViews()}
-        </div>
 
-          )
+          <div>
+              {this.switchViews()}
+          </div>
+            <Listing />
+        </div>
+    )
   }
 }
 

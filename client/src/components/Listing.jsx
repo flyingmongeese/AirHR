@@ -1,51 +1,49 @@
 import React from 'react';
 import Reservations from './Reservations.jsx';
+import DescriptionIcons from './DescriptionIcons.jsx';
+import Amentities from './Amentities.jsx';
 
 let Listing = () => {
 
 	return (
 		<div className="container-fluid">
+			{/************ Top paralax Image URL ************/}
 			<section className="bgimage cleanBorder" style={{backgroundImage: 'url('+sampleData.listings[0].imageURL[0]+')'}}></section>
 			<br />
 
 			<div className="container">
 				<div className="row">
 					<div className="col-md-8 cleanBorder"> 
+						{/************ Quick Summary of Home ************/}
 						<h3 className="display-4">{sampleData.listings[0].summary}</h3>
-						<br />
+						<hr></hr>
+						{/************ Home Description ************/}
 							<h4>{sampleData.listings[0].typeHome} - {sampleData.listings[0].City} - {sampleData.listings[0].State}</h4>
-							<hr></hr>
-							<i className="fa fa-users fa-lg d-inline col-md-3" aria-hidden="true"><p>  {sampleData.listings[0].guests} guests</p></i>
-							<i className="fa fa-home fa-lg d-inline col-md-3" aria-hidden="true"><p>  {sampleData.listings[0].typeHome} </p></i>
-							<i className="fa fa-bed fa-lg d-inline col-md-3" aria-hidden="true"><p>  {sampleData.listings[0].bedrooms} beds</p></i>
-							<i className="fa fa-bath fa-lg d-inline col-md-3" aria-hidden="true"><p>  {sampleData.listings[0].bathrooms} baths</p></i>
 						<br />
 						<br />
+						{/************ Description Icons ************/}
+							<DescriptionIcons />
+						<br />
+						{/************ Summary Description ***********/}
 						<div className="col-md-12">
 							<p>{sampleData.listings[0].description}</p>
 						</div>
 						<hr></hr>
+						{/************* Amentities ****************/}
 						<h4>Amentities</h4>
 						<br />
 						<br />
-							<i className="fa fa-wifi fa-lg d-inline col-md-3" aria-hidden="true"><p> Wifi </p></i>
-							<i className="fa fa-home fa-lg d-inline col-md-3" aria-hidden="true"><p> Kitchen </p></i>
-							<i className="fa fa-car fa-lg d-inline col-md-3" aria-hidden="true"><p> Car </p></i>
-							<i className="fa fa-tint fa-lg d-inline col-md-3" aria-hidden="true"><p> Pool </p></i>
-							<i className="fa fa-bicycle fa-lg d-inline col-md-3" aria-hidden="true"><p> Gym  </p></i>
+							<Amentities />
 						<hr></hr>
-
+						{/************* House Rules ****************/}
 						<h4>House Rules</h4>
 						<br />
-						<div className="col-md-12">
-							<br />
-							<p>{sampleData.listings[0].house_rules[0]}</p>
-							<p>{sampleData.listings[0].house_rules[1]}</p>
-							<p>{sampleData.listings[0].house_rules[2]}</p>
-							<p>{sampleData.listings[0].house_rules[3]}</p>
-						</div>
+							<div className="col-md-12">
+								<br />
+								{sampleData.listings[0].house_rules.map((rule) => <p>{rule}</p>)}
+							</div>
 						<hr></hr>
-
+						{/*****************Cancellations Component*****************/}
 						<h4>Cancellations</h4>
 						<div className="col-md-12">
 							<br />
@@ -55,15 +53,17 @@ let Listing = () => {
 						<hr></hr>
 					</div>
 
-						<div className="col-md-4 rightBorder">
-							<Reservations />	
-						</div>
-
+					{/*****************Reservations Component*****************/}
+					<div className="col-md-4 rightBorder">
+						<Reservations />	
+					</div>
 			</div>
 		</div>
+			{/******************Bottom Image*******************/}
 			<br />
 			<section className="bgimage cleanBorder" style={{backgroundImage: 'url('+sampleData.listings[0].imageURL[1]+')'}}></section>
 			<br />
+
 	</div>
 	)
 }

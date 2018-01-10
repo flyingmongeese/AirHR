@@ -1,27 +1,13 @@
 import React from 'react';
 
-let Reservations = () => {
+let DescriptionIcons = (props) => {
 
 	return (
-
-		<div className="card sticky-top">
-			 <div className="card-header">
-				<h4>{sampleData.listings[0].price} per night</h4>
-			</div>
-			<br />
-
-		  	<div className="jumbotron"> 
-		  	</div>
-
-		  	<div className="card-body">
-				<input className="form-control" type="text" placeholder="Check In"/>
-				<br />
-				<input className="form-control" type="text" placeholder="Check Out"/>
-				<br />
-				<button type="button" className="btn btn-danger btn-lg btn-block">REQUEST A BOOKING</button>
-		  	</div>
-
-				<div className="card-footer text-muted">5 STARS</div>
+		<div>
+			<i className="fa fa-users fa-lg d-inline col-md-3" aria-hidden="true"><p>  {sampleData.listings[0].guests} guests</p></i>
+			<i className="fa fa-home fa-lg d-inline col-md-3" aria-hidden="true"><p>  {sampleData.listings[0].typeHome} </p></i>
+			<i className="fa fa-bed fa-lg d-inline col-md-3" aria-hidden="true"><p>  {sampleData.listings[0].bedrooms} beds</p></i>
+			<i className="fa fa-bath fa-lg d-inline col-md-3" aria-hidden="true"><p>  {sampleData.listings[0].bathrooms} baths</p></i>
 		</div>
 	)
 }
@@ -63,4 +49,4 @@ var sampleData = {
     }]
  };
 
-export default Reservations;
+export default DescriptionIcons
