@@ -26,6 +26,7 @@ class App extends React.Component {
                   <br />
                   <h2 className="display-4"> Book unique homes and</h2> 
                   <h2 className="display-4"> experiences all over the world. </h2>
+                  <h2 className="display-4"> more experiences </h2>
                   <br />
                   <br />
                   <Search />
