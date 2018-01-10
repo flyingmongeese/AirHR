@@ -16,6 +16,22 @@ class App extends React.Component {
                   <br />
                   <h2 className="display-4"> Book unique homes and</h2> 
                   <h2 className="display-4"> experiences all over the world. </h2>
+                  <h2 className="display-4"> more experiences </h2>
+                  <form>
+                    <label>
+                      Address:
+                      <input type="text" address="location" />
+                      </label>
+                      <label>
+                      Bedrooms:
+                      <input type="text" bedrooms="bedrooms"/>
+                      </label>
+                      <label>
+                      Guests:
+                      <input type="text" guests="guests"/>
+                      </label>
+                      <input type="submit" value="Submit" />
+                  </form>
                   <br />
                   <br />
                   <Search />
