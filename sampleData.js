@@ -1,5 +1,4 @@
 var data = [
-
     {
     id: 1,
     userName: 'FlyingMongeese',
@@ -62,8 +61,7 @@ var data = [
             {kitchen: true,
             {parking: false},
             {pool: false},
-            {gym: true}
-            ],
+            {gym: true}],
       house_rules: ['No honey badgers allowed please', 'no smoking', 'no drinking', 'curfew at 10'],
       cancellations: 'For cancellations, please notify us 1 week in advance.',
       lat: null,
@@ -84,7 +82,7 @@ var data = [
       listing_id: 3,
       reserved_dates: [], //tuple of dates i.e [[1/9/18, 1/12/18], ...]
       imageURL: [],
-      summary: String,
+      summary: 'Sydney, Palace of Disney',
       street: '2845 Prismatic Ave.',
       city: 'Oakland',
       state: 'CA',
@@ -94,6 +92,7 @@ var data = [
       bedrooms: 6,
       bathrooms: 3,
       guests: 5,
+      description: String,
       amenities: [{body: null}, //might not be necessary. 
                   {wifi: true},
                   {kitchen: true},
@@ -105,9 +104,9 @@ var data = [
       lat: null,
       lon: null,
       comments: [{user: {id: 2,
-                         username: 'D-Dizzle'}},
-                 {body: 'Wifi kinda sucks.' },
-                 {date: '011-01-2017'}]
+                        username: 'Prism Nick'}},
+                 {body: 'Perfect place to make prisms!' },
+                 {date: '01-01-2018'}]
     }]
   },
 
