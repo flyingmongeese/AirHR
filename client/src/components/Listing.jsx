@@ -1,4 +1,5 @@
 import React from 'react';
+import Reservations from './Reservations.jsx';
 
 let Listing = () => {
 
@@ -55,25 +56,8 @@ let Listing = () => {
 					</div>
 
 						<div className="col-md-4 rightBorder">
-							<div className="card sticky-top">
-							  <div className="card-header">
-							    <h4>${sampleData.listings[0].price} per night</h4>
-							  </div>
-							  	<br />
-							  	<div className="jumbotron"> 
-							  	</div>
-	  						  	<div className="card-body">
-									<input className="form-control" type="text" placeholder="Check In"/>
-									<br />
-									<input className="form-control" type="text" placeholder="Check Out"/>
-									<br />
-	    							<button type="button" className="btn btn-danger btn-lg btn-block">REQUEST A BOOKING</button>
-	  						  	</div>
-	  					<div className="card-footer text-muted">
-	    					5 STARS
-	  					</div>
-					</div>
-				</div>
+							<Reservations />	
+						</div>
 
 			</div>
 		</div>
