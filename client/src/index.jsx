@@ -19,8 +19,16 @@ class App extends React.Component {
                   <h2 className="display-4"> more experiences </h2>
                   <form>
                     <label>
-                      Location:
-                      <input type="text" location="location" />
+                      Address:
+                      <input type="text" address="location" />
+                      </label>
+                      <label>
+                      Bedrooms:
+                      <input type="text" bedrooms="bedrooms"/>
+                      </label>
+                      <label>
+                      Guests:
+                      <input type="text" guests="guests"/>
                       </label>
                       <input type="submit" value="Submit" />
                   </form>
