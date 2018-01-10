@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Search from './components/Search.jsx';
-<<<<<<< HEAD
 import SearchView from './components/SearchView.jsx';
 import Login from './components/Login.jsx';
-=======
 import HomeListings from './components/HomeListings.jsx'
->>>>>>> created homeListings, added it to index.jsx
 
 class App extends React.Component {
 
@@ -17,6 +14,7 @@ class App extends React.Component {
 
   handleSearchSubmit() {
     // nick's test
+  }
     
   handleLoginSubmit() {
     // Test
@@ -35,13 +33,10 @@ class App extends React.Component {
                   <br />
                   <Search />
                 </div>
-<<<<<<< HEAD
                 <SearchView />
                 <Login />
-=======
               <div className="row col-lg-12">
                   <HomeListings />
->>>>>>> created homeListings, added it to index.jsx
               </div>
               </div>
 
