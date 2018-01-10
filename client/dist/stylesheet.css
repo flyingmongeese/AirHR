@@ -1,0 +1,50 @@
+.bgimage {
+  width:100%;
+  height:650px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
+}
+
+.cleanBorder{
+	border-color: #D3D3D3;
+	border-style: solid;
+	border-width: 1px;
+	padding: 2em 2em 2em 2em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.shadowButton{
+	border-color: #D3D3D3;
+	border-style: solid;
+	border-width: 1px;
+	padding: .5em 1em .5em 1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.rightBorder{
+	border-color: #D3D3D3;
+	border-style: solid;
+	border-width: 1px;
+	padding: 2em 2em 2em 2em;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.1), 0 6px 15px 0 rgba(0, 0, 0, 0.05);
+}
+
+i>p , h4 {
+	font-family: Oxygen;
+	display: inline;	
+}
+
+hr {
+	margin-top:2em;
+	margin-bottom:2em;
+}
+
+#shiftLeft {
+	margin-left: -15px;
+}
+
+.jumbotron {
+	background-color: #f9f9f9;
+}
