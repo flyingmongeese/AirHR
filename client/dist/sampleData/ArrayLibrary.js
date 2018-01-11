@@ -1,5 +1,5 @@
 var stateCities = require('state-cities');
-  var stateFull = {
+  var statesAndCities = {
     "AL": stateCities.getCities("Alabama"),
     "AK": stateCities.getCities("Alaska"),
     "AZ": stateCities.getCities("Arizona"),
@@ -36,26 +36,24 @@ var stateCities = require('state-cities');
     "NC": stateCities.getCities("North Carolina"),
     "ND": stateCities.getCities("North Dakota"),
     "OH": stateCities.getCities("Ohio"),
-    // "OK": "Oklahoma",
-    // "OR": "Oregon",
-    // "PW": "Palau",
-    // "PA": "Pennsylvania",
-    // "PR": "Puerto Rico",
-    // "RI": "Rhode Island",
-    // "SC": "South Carolina",
-    // "SD": "South Dakota",
-    // "TN": "Tennessee",
-    // "TX": "Texas",
-    // "UT": "Utah",
-    // "VT": "Vermont",
-    // "VI": "Virgin Islands",
-    // "VA": "Virginia",
-    // "WA": "Washington",
-    // "WV": "West Virginia",
-    // "WI": "Wisconsin",
-    // "WY": "Wyoming"
+    "OK": stateCities.getCities("Oklahoma"),
+    "OR": stateCities.getCities("Oregon"),
+    "PW": stateCities.getCities("Palau"),
+    "PA": stateCities.getCities("Pennsylvania"),
+    "PR": stateCities.getCities("Puerto Rico"),
+    "RI": stateCities.getCities("Rhode Island"),
+    "SC": stateCities.getCities("South Carolina"),
+    "SD": stateCities.getCities("South Dakota"),
+    "TN": stateCities.getCities("Tennessee"),
+    "TX": stateCities.getCities("Texas"),
+    "UT": stateCities.getCities("Utah"),
+    "VT": stateCities.getCities("Vermont"),
+    "VI": stateCities.getCities("Virgin Islands"),
+    "VA": stateCities.getCities("Virginia"),
+    "WA": stateCities.getCities("Washington"),
+    "WV": stateCities.getCities("West Virginia"),
+    "WI": stateCities.getCities("Wisconsin"),
+    "WY": stateCities.getCities("Wyoming")
 }
 
-
-
-
+module.exports.statesAndCities = statesAndCities;
