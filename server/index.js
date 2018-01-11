@@ -50,7 +50,6 @@ passport.use(new LocalStrategy((username, password, done) => {
   })
 }))
 
-
 app.use(parser.json());
 app.use(expressValidator());
 app.use(express.static(path.join(__dirname, '../client/dist')));
@@ -328,3 +327,4 @@ let listings = [
   ];
 
 dataGenerator.Generator(listings);
+console.log(listings)
