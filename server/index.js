@@ -6,9 +6,13 @@ const dataGenerator = require('../sampleData/data_generator.js');
 //console.log('data generator func: ', dataGenerator)
 //// CONFIGURING PASSPORT /////
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+var LocalStrategy = require('passport-local');
 var session = require('express-session');
-app.use(session({secret: 'flyingMongeese'}));
+app.use(session({ 
+  secret: 'flyingMongeese',
+  resave: false,
+  saveUninitialized: false 
+}));
 
 
 
