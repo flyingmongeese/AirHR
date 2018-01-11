@@ -10,7 +10,6 @@ var stateCities = require('state-cities');
     "DE": stateCities.getCities("Delaware"),
     "FL": stateCities.getCities("Florida"),
     "GA": stateCities.getCities("Georgia"),
-    "GU": stateCities.getCities("Guam"),
     "HI": stateCities.getCities("Hawaii"),
     "ID": stateCities.getCities("Idaho"),
     "IL": stateCities.getCities("Illinois"),
