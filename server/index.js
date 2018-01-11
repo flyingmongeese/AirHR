@@ -13,6 +13,8 @@ app.use(session({
   resave: false,
   saveUninitialized: false 
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 
@@ -20,9 +22,7 @@ app.use(session({
 app.use(parser.json());
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-//// Initialize Passport ////
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 app.get('/', (req, res) => {
   // For Evan's homepage
