@@ -102,6 +102,5 @@ module.exports.Generator = function(array) {
     var tempListing = new Listing(i);
     tempListing.images.push(image1, image2)
     array.push(tempListing)
-    console.log(tempListing)
   }
 }
