@@ -28,13 +28,11 @@ function randomDate(start, end) {
 var randomState = function() {
   var stateAbbrev = Object.keys(StatesAndCities);
   var randomState = stateAbbrev[randomNumber(0, stateAbbrev.length - 1)]
-  console.log(randomState)
   return randomState
 }
 
 var randomCity = function(State) {
   var randomCity = StatesAndCities[State][randomNumber(0, StatesAndCities[State].length - 1)]
-  console.log(randomCity)
   return randomCity
 }
 var randomAddress = function() {
