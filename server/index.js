@@ -180,4 +180,3 @@ let listings = [
 
 
     ];
-
