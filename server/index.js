@@ -327,4 +327,3 @@ let listings = [
   ];
 
 dataGenerator.Generator(listings);
-console.log(listings)
