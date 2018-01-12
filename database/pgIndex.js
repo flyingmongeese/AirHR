@@ -34,14 +34,14 @@ const client = new Client({
 
 client.connect();
 
-let createUsers = `CREATE TABLE users (
+let createUsers = `CREATE TABLE IF NOT EXISTS users (
   id SERIAL,
   username TEXT UNIQUE,
   password TEXT,
   PRIMARY KEY (id)	
 )`
 
-let createListings = `CREATE TABLE listings (
+let createListings = `CREATE TABLE IF NOT EXISTS listings (
 
   id SERIAL,
   listingTitle TEXT, 
@@ -73,7 +73,7 @@ let createListings = `CREATE TABLE listings (
 
 )`
 
-let createReservations = `CREATE TABLE reservations (
+let createReservations = `CREATE TABLE IF NOT EXISTS reservations (
 
   id SERIAL,
   user_id SERIAL references users(id),
@@ -82,10 +82,23 @@ let createReservations = `CREATE TABLE reservations (
 
 )`
 
+let createSession = `
+CREATE TABLE IF NOT EXISTS "session" (
+  "sid" varchar NOT NULL COLLATE "default",
+	"sess" json NOT NULL,
+	"expire" timestamp(6) NOT NULL
+)
+WITH (OIDS=FALSE);
+ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
+`
 
-client.query('DROP TABLE IF EXISTS reservations');
+
+
+
+// client.query('DROP TABLE IF EXISTS reservations');
 // client.query('DROP TABLE IF EXISTS users');
-client.query('DROP TABLE IF EXISTS listings');
+// client.query('DROP TABLE IF EXISTS listings');
+// client.query('DROP TABLE IF EXISTS session');
 
 
 // client.query(createUsers, (err, res) => {
@@ -101,6 +114,11 @@ client.query(createListings, (err, res) => {
   }
 })
 
+client.query(createSession, (err, res) => {
+  if (err) {
+    console.error(err);
+  }
+})
 
 client.query(createReservations, (err, res) => {
   if (err) {
