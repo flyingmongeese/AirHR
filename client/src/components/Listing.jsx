@@ -17,10 +17,10 @@ let Listing = ({ listing }) => {
 				<div className="row">
 					<div className="col-md-8 cleanBorder"> 
 						{/************ Quick Summary of Home ************/}
-						<h3 className="display-4">{listing.listingTitle}</h3>
+						<h3 className="display-4">{listing.listingtitle}</h3>
 						<hr></hr>
 						{/************z Home Description ************/}
-							<h4>{listing.typeHome} - {listing.City} - {listing.State}</h4>
+							<h4>{listing.typehome} - {listing.city} - {listing.state}</h4>
 						<br />
 						<br />
 						{/************ Description Icons ************/}
@@ -35,7 +35,7 @@ let Listing = ({ listing }) => {
 						<h4>Amenities</h4>
 						<br />
 						<br />
-							<Amenities />
+							<Amenities listing={listing}/>
 						<hr></hr>
 						{/************* House Rules ****************/}
 						<h4>House Rules</h4>
@@ -45,6 +45,7 @@ let Listing = ({ listing }) => {
 								{listing.house_rules.map((rule) => <p>{rule}</p>)}
 							</div>
 						<hr></hr>
+
 						{/*****************Cancellations Component*****************/}
 						<h4>Cancellations</h4>
 						<div className="col-md-12">

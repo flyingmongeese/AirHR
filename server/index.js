@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const parser = require('body-parser');
-const dataGenerator = require('../sampleData/data_generator.js');
+const dataGenerator = require('../client/dist/sampleData/data_generator.js');
 const authentication = require('./authentication/authentication.js');
+const db = require('../database/pgIndex.js');
 //console.log('data generator func: ', dataGenerator)
 //// CONFIGURING PASSPORT /////
 var passport = require('passport');
@@ -46,11 +47,22 @@ app.post('/login', (req, res) => {
 app.get('/listings', (req, res) => {
   // default post
   // 
-  res.send(listings);
+  db.getAllListings(function(err, results) {
+    if (err) {
+      console.log(err);
+    } else {
+
+      res.send(results);
+    }
+  })
+  // res.send(listings);
 });
 
-app.post('/', (req, res) => {
+
+
+app.post('/listings', (req, res) => {
   // default post
+
 });
 
 app.post('/', (req, res) => {

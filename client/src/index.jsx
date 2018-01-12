@@ -6,7 +6,7 @@ import SearchView from './components/SearchView.jsx';
 import Login from './components/Login.jsx';
 import Listing from './components/Listing.jsx';
 import HomeView from './components/HomeView.jsx';
-import NavBar from './components/NavBar.jsx';
+import Navbar from './components/Navbar.jsx';
 
 // ../../sampleData/images
 
@@ -76,7 +76,7 @@ class App extends React.Component {
     return (
         <div >
           <header>
-            <NavBar isLoggedIn={ this.state.isLoggedIn } handleNavChange={ this.handleNavChange.bind(this) } />
+            <Navbar isLoggedIn={ this.state.isLoggedIn } handleNavChange={ this.handleNavChange.bind(this) } />
           </header>
 
           <div className="container-fluid marginPush">

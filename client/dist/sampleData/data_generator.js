@@ -102,12 +102,23 @@ class Listing  {
       this.parking = randomBoolean();
       this.pool = randomBoolean();
       this.gym = randomBoolean();
+      this.house_rules = ['No honey badgers allowed please', 'please refrain to jumping jacks at night', 'please do not play basketball in the house', 'no blow horns please']
       //this.summary= 'summary string',                           //summary= 'we have these amenities...', //might not be necessary. 
                                          //gym= randomBoolean();
       
       this.cancellations= 'you must inform by post',
       this.lat= null,    //Lat and Long can be replaced by city state address
-      this.lon= null
+      this.lon= null,
+      this.comments= [
+                      {'users': [
+                                  {'id': 2,
+                                  'username': 'name'}
+                                ],
+                      'body': reviews[this.rating],
+                      'date': (randomDate(new Date(2012, 0, 1), new Date()).toString()),
+                      'imageURL': 'https://i.pinimg.com/736x/37/f3/c4/37f3c436af086e2f835304592899713f--create-an-avatar-flat-style.jpg'
+                    }
+                      ]
       
                               
   }
@@ -120,8 +131,9 @@ module.exports.Generator = function(array) {
     // console.log('this is the array: ', array)
   for(var i = 1; i < 200; i++) {
     var imageURL = 'sampleData/images/image-' + (randomNumber(0, 29)).toString()+'.jpg';
+    var imageURL2 = 'sampleData/images/image-' + (randomNumber(0, 29)).toString()+'.jpg';
     var tempListing = new Listing(i);
-    tempListing.images.push(imageURL)
+    tempListing.images.push(imageURL, imageURL2)
     //console.log('this is the listing: ', tempListing)
     // console.log(',')
     array.push(tempListing)

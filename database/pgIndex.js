@@ -116,26 +116,50 @@ function buildStatement (insert, rows) {
 }
 
 client.query(buildStatement(`INSERT INTO listings(images, street, state, city, rating, price, listingTitle, private, typehome, bedrooms, bathrooms,
- guests, description, wifi, kitchen, parking, pool, gym, cancellations, lat, lon) VALUES `, listings), (err, res) => {
+ guests, description, wifi, kitchen, parking, pool, gym, house_rules, cancellations, lat, lon, comments) VALUES `, listings), (err, res) => {
 	if (err) {
 	  console.log(err);
-	} else {
-	  client.end();
 	}
 })
 
-let saveListing = function(params, callback) {
-  // saves a new listing to the DB
-  // expects params to be an obj with the required params
-  var queryStr = `INSERT INTO listings VALUES ('A wahroonga to stay', 20000, ['image1.url', 'image2.url'], 'Lovely Leafy Place', 'Wahroonga Ave', 'Sydney')`
-  // var queryStr = `INSERT INTO listings VALUES (${results.name}, ${results.price}, ${results.images}, ${results.summary}, ${results.street}, ${results.city})`
+
+let getAllListings = function(callback) {
+  var queryStr = `SELECT * FROM listings`;
   client.query(queryStr, (err, res) => {
   	if (err) {
   	  callback(err, null);
   	} else {
-      callback(null, res);
+  	  callback(null, res);
+  	  // client.end()
   	}
-  });
+  })
+}
+
+let getListingsByCategory = function(city, callback) {
+  var queryStr = `SELECT * FROM listings WHERE ${category} LIKE '${city}'`
+  client.query(queryStr, (err, res) => {
+  	if (err) {
+  	  callback(err, null);
+  	} else {
+  	  callback(null, res);
+  	}
+  })
+}
+
+let saveListing = function(params, callback) {
+  // saves a new listing to the DB
+  // expects params to be an obj with the required params
+  console.log(params);
+  var queryStr = `INSERT INTO listings(images, street, state, city, rating, price, listingTitle, private, typehome, bedrooms, bathrooms,
+ 	guests, description, wifi, kitchen, parking, pool, gym, cancellations, lat, lon) VALUES ('${params.images}')`
+  // var queryStr = `INSERT INTO listings VALUES (${results.name}, ${results.price}, ${results.images}, ${results.summary}, ${results.street}, ${results.city})`
+  // client.query(queryStr, (err, res) => {
+  // 	if (err) {
+  // 	  callback(err, null);
+  // 	} else {
+  //     callback(null, res);
+  // 	}
+  // });
 }
 
 let getReservationsByUser = function(username, callback) {
@@ -146,11 +170,9 @@ let getReservationsByUser = function(username, callback) {
 
 
 
-
-
-
-
+module.exports.getAllListings = getAllListings;
 module.exports.saveListing = saveListing;
+module.exports.getListingsByCategory = getListingsByCategory;
 
 
 
