@@ -18,7 +18,6 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-
 //app.use(express.static('../sampleData/images'))
 app.use(parser.json());
 app.use(express.static(path.join(__dirname, '../client/dist')));

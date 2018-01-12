@@ -18,8 +18,6 @@ var randomBoolean = function() {
   var truthValue = randomNumber(0,1);
   return truthValue === 1 ? true : false;
 }
-// images, street, state, city, rating, price, listingTitle, private, typehome, bedrooms, bathrooms, guests, description, wifi, kitchen, parking, pool, gym, cancellations, lat, lon
-
 
 function randomDate(start, end) {
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
@@ -28,11 +26,13 @@ function randomDate(start, end) {
 var randomState = function() {
   var stateAbbrev = Object.keys(StatesAndCities);
   var randomState = stateAbbrev[randomNumber(0, stateAbbrev.length - 1)]
+  console.log(randomState)
   return randomState
 }
 
 var randomCity = function(State) {
   var randomCity = StatesAndCities[State][randomNumber(0, StatesAndCities[State].length - 1)]
+  console.log(randomCity)
   return randomCity
 }
 var randomAddress = function() {
@@ -51,28 +51,47 @@ var listingSummary = function(city) {
 }
 
 class Listing  {
-  constructor() {   
+  constructor(listing_id) {
+    
+      this.listing_id= listing_id,
+      this.reserved_dates= [], //tuple of dates i.e [[1/9/18, 1/12/18], ...]
       this.images= [],
       this.Street= randomAddress(),
       this.State= randomState()
       this.City= randomCity(this.State)
       this.rating= randomNumber(1,5), 
+      this.price= randomNumber(100,1000).toString() + ' USD per night',
       this.listingTitle = listingSummary(this.City),
       this.private= randomBoolean(),
       this.typeHome= homeTypeArray[randomNumber(0,3)], //apartment, home, tent, RV
       this.bedrooms= this.typeHome !== 'tent' && this.typeHome !== 'RV' ? randomNumber(1,8) : 1,
       this.bathrooms= this.bedrooms > 2 ? randomNumber(2, this.bedrooms) : 1,
       this.guests= this.bedrooms * 2,
-      this.description= 'this is a place that you can sleep',
-      this.wifi = randomBoolean();
-      this.kitchen = randomBoolean();
-      this.parking = randomBoolean();
-      this.pool = randomBoolean();
-      this.gym = randomBoolean();
+      this.description= 'Welcome to our home!',
+      this.amenities =
+                        [
+                          {'wifi': randomBoolean()},
+                          {'kitchen': randomBoolean()},
+                          {'parking': randomBoolean()},
+                          {'pool': randomBoolean()},
+                          {'gym': randomBoolean()}
+                        ]                                //summary= 'we have these amenities...', //might not be necessary. 
+                                         //gym= randomBoolean();
+      this.house_rules= [`don't break them`],
       this.cancellations= 'you must inform by post',
       this.lat= null,    //Lat and Long can be replaced by city state address
-      this.lon= null
-                       
+      this.lon= null,
+      this.comments= [
+                      {'users': [
+                                  {'id': 2,
+                                  'username': 'name'}
+                                ],
+                      'body': reviews[this.rating],
+                      'date': (randomDate(new Date(2012, 0, 1), new Date()).toString()),
+                      'imageURL': 'https://i.pinimg.com/736x/37/f3/c4/37f3c436af086e2f835304592899713f--create-an-avatar-flat-style.jpg'
+                    }
+                      ]
+                              
   }
 }
 
