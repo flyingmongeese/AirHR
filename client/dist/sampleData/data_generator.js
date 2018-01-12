@@ -9,7 +9,7 @@ var reviews = ['There were monsters under the bed!',
 var homeTypeArray = ['apartment', 'home', 'tent', 'RV']
 
 var randomNumber = function(min, max) {
-  var number = Math.round((max-min) * Math.random())
+  var number = Math.ceil((max-min) * Math.random())
   return number
 }
 
@@ -45,6 +45,14 @@ var listingSummary = function(city) {
   var area = ['district', 'neighborhood', 'region']
   city = city[0] + city.slice(1).toLowerCase()
   return `${where[rn(0, where.length- 1)]} the ${description[rn(0, description.length - 1)]} ${area[rn(0, area.length - 1)]} of ${city}` 
+}
+var rating = function() {
+  var ratingArr = [];
+  var rating = randomNumber(1,5);
+  for(var i = 0; i <= rating; i++) {
+    ratingArr.push('*');
+  }
+  return ratingArr;
 }
 
 // images, street, state, city, rating, price, listingTitle, private, typehome, bedrooms, bathrooms, guests, description, wifi, kitchen, parking, pool, gym, cancellations, lat, lon
