@@ -76,8 +76,8 @@ class App extends React.Component {
     return (
         <div >
           <header>
-            <NavBar isLoggedIn={ this.state.isLoggedIn } handleNavChange={ this.handleNavChange.bind(this) } />
-          </header>
+{/*            <NavBar isLoggedIn={ this.state.isLoggedIn } handleNavChange={ this.handleNavChange.bind(this) } />
+*/}          </header>
 
           <div className="container-fluid marginPush">
               {this.switchViews()}
