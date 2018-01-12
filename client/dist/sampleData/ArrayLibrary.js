@@ -38,6 +38,7 @@ var stateCities = require('state-cities');
     "OK": stateCities.getCities("Oklahoma"),
     "OR": stateCities.getCities("Oregon"),
     "PA": stateCities.getCities("Pennsylvania"),
+    "PA": stateCities.getCities("Pennsylvania"),
     "RI": stateCities.getCities("Rhode Island"),
     "SC": stateCities.getCities("South Carolina"),
     "SD": stateCities.getCities("South Dakota"),
