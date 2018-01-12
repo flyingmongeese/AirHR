@@ -95,7 +95,7 @@ class Listing  {
 module.exports.Generator = function(array) {
 
     // console.log('this is the array: ', array)
-  for(var i = 1; i < 20; i++) {
+  for(var i = 1; i <= 40; i++) {
     var imageURL = 'sampleData/images/image-' + (randomNumber(0, 29)).toString()+'.jpg';
     var imageURL2 = 'sampleData/images/image-' + (randomNumber(0, 29)).toString()+'.jpg';
     var tempListing = new Listing(i);
