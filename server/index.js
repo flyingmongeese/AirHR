@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const parser = require('body-parser');
-const dataGenerator = require('../sampleData/data_generator.js');
+
 const authentication = require('./authentication/authentication.js');
-//console.log('data generator func: ', dataGenerator)
+
+const dataGenerator = require('../client/dist/sampleData/data_generator.js');
+
 //// CONFIGURING PASSPORT /////
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
@@ -16,10 +18,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-
-
+//app.use(express.static('../sampleData/images'))
 app.use(parser.json());
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
@@ -48,6 +47,10 @@ app.get('/listings', (req, res) => {
   // 
   res.send(listings);
 });
+
+app.get('/images', (req, res) => {
+  res.send('image urls')
+})
 
 app.post('/', (req, res) => {
   // default post
@@ -240,4 +243,5 @@ let listings = [
                         ]
     }
     ];
+
 dataGenerator.Generator(listings);
