@@ -36,14 +36,14 @@ const client = new Client({
 
 client.connect();
 
-let createUsers = `CREATE TABLE IF NOT EXISTS users (
+let createUsers = `CREATE TABLE users (
   id SERIAL,
   username TEXT UNIQUE,
   password TEXT,
   PRIMARY KEY (id)	
 )`
 
-let createListings = `CREATE TABLE IF NOT EXISTS listings (
+let createListings = `CREATE TABLE listings (
 
   id SERIAL,
   listingTitle TEXT, 
@@ -75,7 +75,7 @@ let createListings = `CREATE TABLE IF NOT EXISTS listings (
 
 )`
 
-let createReservations = `CREATE TABLE IF NOT EXISTS reservations (
+let createReservations = `CREATE TABLE reservations (
 
   id SERIAL,
   user_id SERIAL references users(id),
@@ -97,9 +97,9 @@ ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFE
 
 
 
-// client.query('DROP TABLE IF EXISTS reservations');
-// client.query('DROP TABLE IF EXISTS users');
-// client.query('DROP TABLE IF EXISTS listings');
+client.query('DROP TABLE IF EXISTS reservations');
+client.query('DROP TABLE IF EXISTS users');
+client.query('DROP TABLE IF EXISTS listings');
 // client.query('DROP TABLE IF EXISTS session');
 
 
