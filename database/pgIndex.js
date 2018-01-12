@@ -85,7 +85,7 @@ let createReservations = `CREATE TABLE reservations (
 )`
 
 let createSession = `
-CREATE TABLE IF NOT EXISTS "session" (
+CREATE TABLE "session" (
   "sid" varchar NOT NULL COLLATE "default",
 	"sess" json NOT NULL,
 	"expire" timestamp(6) NOT NULL
@@ -100,7 +100,7 @@ ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFE
 client.query('DROP TABLE IF EXISTS reservations');
 client.query('DROP TABLE IF EXISTS users');
 client.query('DROP TABLE IF EXISTS listings');
-// client.query('DROP TABLE IF EXISTS session');
+client.query('DROP TABLE IF EXISTS session');
 
 
 client.query(createUsers, (err, res) => {
