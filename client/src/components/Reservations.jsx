@@ -1,4 +1,7 @@
 import React from 'react';
+import DayPicker from 'react-day-picker';
+import '../../../node_modules/react-day-picker/lib/style.css';
+
 
 let Reservations = ({listing}) => {
 
@@ -17,6 +20,8 @@ let Reservations = ({listing}) => {
 				<input className="form-control" type="text" placeholder="Check In"/>
 				<br />
 				<input className="form-control" type="text" placeholder="Check Out"/>
+				<br />
+				<DayPicker />
 				<br />
 				<button type="button" className="btn btn-danger btn-lg btn-block">REQUEST A BOOKING</button>
 		  	</div>
