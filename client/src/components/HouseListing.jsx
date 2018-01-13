@@ -20,7 +20,7 @@ class HouseListing extends React.Component {
     }
 
     var numberOfRatings = randomNumber(1,10000);
-
+    
   	return (
       
 			<div className ='img-responsive center-block col-md-3 col-sm-6 col-xs-12 img-thumbnail thumbnailListings'
