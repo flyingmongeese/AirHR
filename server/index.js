@@ -149,8 +149,17 @@ app.get('/profile', (req, res) => {
 })
 
 
-app.post('/listings', (req, res) => {
+app.get('/reservations', (req, res) => {
   // default post
+  let userId = req.user;
+  db.getReservationsByUser(userId, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('RESULT FROM /RESERVATIONS', result);
+      res.send(result);
+    }
+  })
 
 });
 
@@ -159,17 +168,22 @@ app.post('/dates', (req, res) => {
   let fromDate = req.body.fromDate;
   let toDate = req.body.toDate;
   let id = req.body.id;
-  db.updateReservedDates(id, fromDate, toDate, (error, result) => {
-    if (error) {
-      console.error(error);
-    } else {
-      if (result === 'clash') {
-        res.send('clash')
+  let userId = req.user;
+  if (!req.isAuthenticated()) {
+    res.send('not logged in');
+  } else {
+    db.updateReservedDates(userId, id, fromDate, toDate, (error, result) => {
+      if (error) {
+        console.error(error);
       } else {
-        res.send('booked');
+        if (result === 'clash') {
+          res.send('clash')
+        } else {
+          res.send('booked');
+        }
       }
-    }
-  })
+    })
+  }
   // res.send('got request!');
   // db.updateReservedDates
 
