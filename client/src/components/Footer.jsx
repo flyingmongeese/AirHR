@@ -17,6 +17,8 @@ class Footer extends React.Component {
     }
   }
 
+  //get request to currancy api
+
 
 render(){
 	return(

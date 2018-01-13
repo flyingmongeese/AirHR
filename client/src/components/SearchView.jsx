@@ -1,8 +1,11 @@
 import React from 'react';
 import data2 from '../../../sampleData2.js';
 import HouseListing from './HouseListing.jsx';
+import GoogleMap from './Map.jsx';
 
 const axios = require('axios');
+
+const maps_API_KEY = require('../../../server/config/mapsAPI.js').maps_API_KEY;
 
 class SearchView extends React.Component {
   	
@@ -27,12 +30,16 @@ class SearchView extends React.Component {
   }
 
   render() {
+    //console.log("info ", this.state.listings[0] ? this.state.listings[0].state : 'empty')
+    var city = this.state.listings.length !== 0 ? this.state.listings[0].city : 'SanFransisco';
+    var State = this.state.listings.length !== 0 ? this.state.listings[0]['state'] : 'CA';
+    //console.log(city, State)
     var noResults = null;
     if (this.state.listings.length === 0) {
       noResults = <div> Sorry, there appears to be no homes listed in this city </div>
     }
   	return (
- 
+      
         <div className = 'container-fluid'> 
           <div className = 'row'>
             <div className="col-md-8 cleanBorder"> 
@@ -45,7 +52,7 @@ class SearchView extends React.Component {
               </div>
             </div> 
             <div className="col-md-4">
-              <img src = 'https://media.wired.com/photos/59333e64714b881cb296a4d4/master/w_933,c_limit/Google-Maps-shot-of-San-Francisco.png'/>
+             <GoogleMap State={State} city={city} listings={this.state.listings} />
             </div>
           </div>
   	    </div> 

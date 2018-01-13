@@ -3,6 +3,7 @@ import Reservations from './Reservations.jsx';
 import DescriptionIcons from './DescriptionIcons.jsx';
 import Amenities from './Amenities.jsx';
 import Reviews from './Reviews.jsx';
+import GoogleMap from './Map.jsx'
 
 let Listing = ({ listing }) => {
 
@@ -66,9 +67,14 @@ let Listing = ({ listing }) => {
 			<br />
 			<section className="bgimage cleanBorder" style={{backgroundImage: 'url('+listing.images[1]+')'}}></section>
 			<br />
-			
 			{/************Reviews View**********/}
 			<div className="container-fluid cleanBorder">
+				<div className="row">
+					<div className="col-4">
+						<GoogleMap city={listing.city} State={listing.state} />
+					</div>
+					<div className="col-2"></div>
+					<div className="col-6">
 				<h1 className="display-4 text-center">
 					Reviews
 				</h1>
@@ -76,6 +82,8 @@ let Listing = ({ listing }) => {
 					<Reviews listing={listing}/>
 					<Reviews listing={listing}/>
 					<Reviews listing={listing}/>
+					</div>
+				</div>
 			</div>
 
 		
