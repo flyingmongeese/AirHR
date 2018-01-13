@@ -40,10 +40,14 @@
     "react-date-picker": "^6.6.2",
     "react-day-picker": "^7.0.7",
     "react-dom": "^16.2.0",
+<<<<<<< HEAD
     "react-helmet": "^5.2.0",
     "state-cities": "^1.0.6",
     "style-loader": "^0.19.1",
     "webpack": "^2.2.1"
+=======
+    "state-cities": "^1.0.6"
+>>>>>>> dropped and re-added database
   },
   "devDependencies": {
     "babel-cli": "^6.7.5",
@@ -54,8 +58,12 @@
     "babel-register": "^6.7.2",
     "css-loader": "^0.28.8",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+<<<<<<< HEAD
     "style-loader": "^0.19.1",
     "webpack": "^2.2.1"
+=======
+    "webpack": "^2.7.0"
+>>>>>>> dropped and re-added database
   },
   "babel": {
     "presets": [

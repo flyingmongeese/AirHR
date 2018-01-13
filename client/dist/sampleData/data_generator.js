@@ -59,8 +59,6 @@ var listingSummary = function(city) {
 // images, street, state, city, rating, price, listingTitle, private, typehome, bedrooms, bathrooms, guests, description, wifi, kitchen, parking, pool, gym, cancellations, lat, lon
 class Listing  {
   constructor() {
-    
-    
        //tuple of dates i.e [[1/9/18, 1/12/18], ...]
       this.images= [],
       this.Street= 'street address',
@@ -81,11 +79,8 @@ class Listing  {
       this.pool = randomBoolean();
       this.gym = randomBoolean();
       this.house_rules = ['No honey badgers allowed please', 'please refrain to jumping jacks at night', 'please do not play basketball in the house', 'no blow horns please']
-      //this.summary= 'summary string',                           //summary= 'we have these amenities...', //might not be necessary. 
-                                         //gym= randomBoolean();
-      
       this.cancellations= 'you must inform by post',
-      this.lat= null,    //Lat and Long can be replaced by city state address
+      this.lat= null,
       this.lon= null,
       this.comments= [
                       {'users': [
@@ -95,16 +90,14 @@ class Listing  {
                       'body': reviews[this.rating],
                       'date': (randomDate(new Date(2012, 0, 1), new Date()).toString()),
                       'imageURL': 'https://i.pinimg.com/736x/37/f3/c4/37f3c436af086e2f835304592899713f--create-an-avatar-flat-style.jpg'
-                    }
-                      ]
-      
-                              
+                      }
+                    ]             
   }
 }
 module.exports.Generator = function(array) {
 
     // console.log('this is the array: ', array)
-  for(var i = 1; i <= 40; i++) {
+  for(var i = 1; i <= 50; i++) {
     var imageURL = 'sampleData/images/image-' + (randomNumber(0, 29)).toString()+'.jpg';
     var imageURL2 = 'sampleData/images/image-' + (randomNumber(0, 29)).toString()+'.jpg';
     var tempListing = new Listing(i);
@@ -113,5 +106,4 @@ module.exports.Generator = function(array) {
     // console.log(',')
     array.push(tempListing)
   }
-
 }
