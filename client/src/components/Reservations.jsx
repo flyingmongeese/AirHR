@@ -32,8 +32,17 @@ class Reservations extends React.Component {
   	var id = this.props.listing.id;
   	
   	axios.post('/dates', {fromDate: fromDate, toDate: toDate, id: id}).then((response) => {
-  	  console.log(response);
-  	  console.log(response.data)
+  	  // console.log(response);
+  	  // console.log(response.data)
+      if (response.data === 'not logged in') {
+        this.setState((prevState) => {
+          return {
+            from: prevState.from,
+            to: prevState.to,
+            clash: 'loggedOut'
+          }
+        })
+      }
   	  if (response.data === 'clash') {
   	  	// render a 'sorry, we could not book for these dates'
   	  	this.setState((prevState) => {
@@ -68,6 +77,10 @@ class Reservations extends React.Component {
   	if (this.state.clash === 'nope') {
   	  clashMessage = <div> Consider it done! </div>
   	}
+
+    if (this.state.clash === 'loggedOut') {
+      clashMessage = <div> You must be logged in to request a booking! </div>
+    }
 
   	return (
 

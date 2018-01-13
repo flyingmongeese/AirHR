@@ -38,7 +38,7 @@ class ListingForm extends React.Component {
 
         {/******Third Row with Type of Home, Description of Home (accomodation, bed, bath)****/}
           <div className="col-md-6 formPush">
-          <label for="houselisting">Type of Home:</label>
+          <label htmlFor="houselisting">Type of Home:</label>
             <select className="form-control" id="houselisting">
               <option>Private Home</option>
               <option>Shared Home</option>
@@ -49,7 +49,7 @@ class ListingForm extends React.Component {
           </div>
 
          <div className="form-group col-md-2">
-          <label for="houselisting">Accomodates</label>
+          <label htmlFor="houselisting">Accomodates</label>
             <select className="form-control" id="houselisting">
               <option>1 Guest</option>
               <option>2 Guests</option>
@@ -62,7 +62,7 @@ class ListingForm extends React.Component {
         </div>
 
         <div className="form-group col-md-2">
-          <label for="houselisting">Bedrooms</label>
+          <label htmlFor="houselisting">Bedrooms</label>
             <select className="form-control" id="houselisting">
               <option>1</option>
               <option>2</option>
@@ -75,7 +75,7 @@ class ListingForm extends React.Component {
         </div>
 
         <div className="form-group col-md-2">
-          <label for="houselisting">Bathrooms</label>
+          <label htmlFor="houselisting">Bathrooms</label>
             <select className="form-control" id="houselisting">
               <option>1</option>
               <option>2</option>
@@ -88,18 +88,18 @@ class ListingForm extends React.Component {
         </div>
         {/*************** Descriptions House Rules and Cancellations************/}
           <div className="col-md-4 formPush">
-            <label for="comment">Description:</label>
+            <label htmlFor="comment">Description:</label>
             <textarea class="form-control" rows="5" id="comment"></textarea>
           </div>
 
           <div className="col-md-4 formPush">
-            <label for="comment">House Rules:</label>
-            <textarea class="form-control" rows="5" id="comment"></textarea>
+            <label htmlFor="comment">House Rules:</label>
+            <textarea className="form-control" rows="5" id="comment"></textarea>
           </div>
 
           <div className="col-md-4 formPush">
-            <label for="comment">Cancellation:</label>
-            <textarea class="form-control" rows="5" id="comment"></textarea>
+            <label htmlFor="comment">Cancellation:</label>
+            <textarea className="form-control" rows="5" id="comment"></textarea>
           </div>
   
         {/*************** URLs ************/}

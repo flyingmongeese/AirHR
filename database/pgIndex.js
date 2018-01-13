@@ -32,9 +32,10 @@ const client = new Client({
 //   connectionString: process.env.DATABASE_URL,
 //   ssl: true
 // })
-
+//
 client.connect();
 
+// client.query('DROP TABLE IF EXISTS reservations');
 let createUsers = `CREATE TABLE IF NOT EXISTS users (
   id SERIAL,
   username TEXT UNIQUE,
@@ -74,8 +75,8 @@ let createListings = `CREATE TABLE IF NOT EXISTS listings (
 
 let createReservations = `CREATE TABLE IF NOT EXISTS reservations (
   id SERIAL,
-  user_id SERIAL references users(id),
-  listing_id SERIAL references listings(id),
+  user_id INTEGER,
+  listing_id INTEGER,
   days_reserved DATE ARRAY
 )`
 
@@ -89,10 +90,9 @@ WITH (OIDS=FALSE);
 ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
 `
 
+// 
 
 
-
-// client.query('DROP TABLE IF EXISTS reservations');
 // client.query('DROP TABLE IF EXISTS users');
 // client.query('DROP TABLE IF EXISTS listings');
 // client.query('DROP TABLE IF EXISTS session');
@@ -172,7 +172,7 @@ let getListingsByCity = function(city, callback) {
   })
 }
 
-let updateReservedDates = function(listingId, newFromDate, newToDate, callback) {
+let updateReservedDates = function(userId, listingId, newFromDate, newToDate, callback) {
 
   var queryStr1 = `SELECT reserved_dates FROM listings WHERE id = ${listingId}`;
   client.query(queryStr1, (err, res) => {
@@ -189,7 +189,8 @@ let updateReservedDates = function(listingId, newFromDate, newToDate, callback) 
           }
         }
       }
-      console.log('POST COMPARISON', clash)
+      // console.log('POST COMPARISON', clash)
+
       if (clash) {
         callback(null, 'clash');
       } else {
@@ -198,7 +199,17 @@ let updateReservedDates = function(listingId, newFromDate, newToDate, callback) 
           if (err) {
             callback(err, null);
           } else {
-            callback(null, res);
+            // update reservations TABLE with a new reservation, listingId/userId
+            var nestedQuery1 = `INSERT INTO reservations(user_id, listing_id, days_reserved) VALUES (${userId}, ${listingId}, '{${newFromDate}, ${newToDate}}')`
+            console.log('NESTED QUERY IS', nestedQuery1)
+            client.query(nestedQuery1, (err, res) => {
+              if (err) {
+                callback(err, null);
+              } else {
+                callback(null, res);    
+              }
+            })
+            
           }
         });
       } 
@@ -225,9 +236,20 @@ let saveListing = function(params, callback) {
   // });
 }
 
-let getReservationsByUser = function(username, callback) {
+let getReservationsByUser = function(userId, callback) {
   // input: username
   // output: array of reservations currently made by that user
+
+  // get all listing_id's/dates for reservations currently made by that user
+  // return all listing properties/dates for that user 
+  let queryStr = `SELECT * from listings WHERE id IN (SELECT listing_id FROM reservations WHERE user_id = ${userId})`;
+  client.query(queryStr, (err, res) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, res);
+    }
+  })
 }
 
 let registerUser = (req, callback) => {
@@ -295,7 +317,7 @@ module.exports.pool = pool;
 module.exports.findUser = findUser;
 module.exports.getUserProfile = getUserProfile;
 module.exports.updateReservedDates = updateReservedDates;
-
+module.exports.getReservationsByUser = getReservationsByUser;
 
 
 // var parse = require('pg-connection-string').parse;

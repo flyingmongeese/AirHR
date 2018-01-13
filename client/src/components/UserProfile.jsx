@@ -4,7 +4,8 @@ import HouseListing from './HouseListing.jsx';
 import Search from './Search.jsx';
 import Navbar from './Navbar.jsx';
 import SearchView from './SearchView.jsx';
-import Footer from './Footer.jsx';
+import Footer from './footer.jsx';
+import ReservationListing from './ReservationListing.jsx';
 
 const axios = require('axios');
 
@@ -18,21 +19,22 @@ class UserProfile extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   var instance = this;
+  componentDidMount() {
+    var instance = this;
 
-  //   axios.get('/listings').then(function(response) {
-  //     console.log('RESPONSE FROM GET IS', response.data.rows);
-  //     instance.setState({
-  //       listings: response.data.rows
-  //     })
-  //   }).catch(function(error) {
-  //     console.log(error)
-  //   })
+    axios.get('/reservations').then(function(response) {
+      // console.log('RESPONSE FROM GET IS', response.data.rows);
+      instance.setState({
+        listings: response.data.rows
+      })
+    }).catch(function(error) {
+      console.log(error)
+    })
 
-  // }
+  }
 
   render() {
+
     return (
       <div>
         <div className="container-fluid">
@@ -63,6 +65,8 @@ class UserProfile extends React.Component {
             <p className="userGreeting"> Welcome to your profile! </p>
             <p>San Fransisco, CA. Joined 12/4/2014</p>
             <button type="button" className="btn btn-primary">Edit Profile</button>
+            <h3> Upcoming Trips </h3>
+            {this.state.listings.map((listing) => <ReservationListing house = {listing} />)}
           </div>
         </div>
           <Footer />
