@@ -109,8 +109,6 @@ module.exports.Generator = function(array) {
     var imageURL2 = 'sampleData/images/image-' + (randomNumber(0, 29)).toString()+'.jpg';
     var tempListing = new Listing(i);
     tempListing.images.push(imageURL, imageURL2)
-    //console.log('this is the listing: ', tempListing)
-    // console.log(',')
     array.push(tempListing)
   }
 

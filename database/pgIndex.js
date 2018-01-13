@@ -143,14 +143,14 @@ function buildStatement (insert, rows) {
     values: params
   }
 }
-
+console.log('before', listings)
 client.query(buildStatement(`INSERT INTO listings(images, street, state, city, rating, price, listingTitle, private, typehome, bedrooms, bathrooms,
  guests, description, wifi, kitchen, parking, pool, gym, house_rules, cancellations, lat, lon, comments) VALUES `, listings), (err, res) => {
 	if (err) {
 	  console.log(err);
 	}
 })
-
+console.log('after')
 
 let getAllListings = function(callback) {
   var queryStr = `SELECT * FROM listings LIMIT 20`;
