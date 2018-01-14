@@ -189,7 +189,7 @@ app.patch('/profile', (req, res) => {
 
 app.get('/reservations', (req, res) => {
   // default post
-  let userId = req.user.userid;
+  let userId = req.user;
 
   db.getReservationsByUser(userId, (err, result) => {
     if (err) {
@@ -207,7 +207,7 @@ app.post('/dates', (req, res) => {
   let fromDate = req.body.fromDate;
   let toDate = req.body.toDate;
   let id = req.body.id;
-  let userId = req.user.userid;
+  let userId = req.user;
   if (!req.isAuthenticated()) {
     res.send('not logged in');
   } else {

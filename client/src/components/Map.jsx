@@ -17,7 +17,7 @@ class GoogleMap extends React.Component {
 
 
 
-    console.log('listing props, ', this.props.listings)
+    // console.log('listing props, ', this.props.listings)
   	return (
 
             <div className='cleanBorder' id="formPadding">

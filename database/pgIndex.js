@@ -35,10 +35,10 @@ const client = new Client({
 //
 client.connect();
 
-client.query('DROP TABLE IF EXISTS users');
-client.query('DROP TABLE IF EXISTS reservation');
-client.query('DROP TABLE IF EXISTS listings');
-client.query('DROP TABLE IF EXISTS session');
+// client.query('DROP TABLE IF EXISTS users');
+// client.query('DROP TABLE IF EXISTS reservation');
+// client.query('DROP TABLE IF EXISTS listings');
+// client.query('DROP TABLE IF EXISTS session');
 
 let createUsers = `CREATE TABLE IF NOT EXISTS users (
   id SERIAL,

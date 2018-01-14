@@ -19,7 +19,7 @@ class HomeView extends React.Component {
     var instance = this;
 
     axios.get('/listings').then(function(response) {
-      console.log('RESPONSE FROM GET IS', response.data.rows);
+      // console.log('RESPONSE FROM GET IS', response.data.rows);
       instance.setState({
         listings: response.data.rows
       })

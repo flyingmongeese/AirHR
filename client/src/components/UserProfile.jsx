@@ -103,7 +103,7 @@ class UserProfile extends React.Component {
           <h5 className="card-title">{ this.state.user.username }'s Profile</h5>
           <p className="card-text"> { this.handleEmptyInput('contact', 0, 'email') } </p>
           <p className="card-text"> { this.handleEmptyInput('contact', 1, 'phone') } </p>
-          <button className="btn btn-primary" onClick={this.showEditor.bind(this, 'contactView') } > Add Verifications </button>
+          <button className="btn btn-danger" onClick={this.showEditor.bind(this, 'contactView') } > Add Verifications </button>
         </div>
       );
     } else if (this.state.contactView === 'edit') {
@@ -124,7 +124,7 @@ class UserProfile extends React.Component {
                    value={ this.handleEmptyInput('contact', 1, 'phone') } 
                    onChange={ this.handleUserInput.bind(this, 'contact', 1) } />
           </div>
-          <button className="btn btn-primary" 
+          <button className="btn btn-danger" 
                   onClick={this.saveEdit.bind(this, 'contactView', 'contact', ['email', 'phone']) } 
           > Save Edits </button>
         </div>
@@ -143,13 +143,7 @@ class UserProfile extends React.Component {
                 <div className="border" id="formPadding">
                   <img src="http://cvl-demos.cs.nott.ac.uk/vrn/queue/59b4192763dd4.jpg" className="img-responsive card-img-top rounded-circle float-left"/>
                 </div>
-                <div className="card-body">
-                  <h5 className="card-title">{ this.state.user.username }'s Profile</h5>
-                  <p className="card-text"> Email Address </p>
-                  <p className="card-text"> Phone Number </p>
-                  <p className="card-text"> Contact </p>
-                  <a href="#" className="btn btn-danger"> Add Verifications </a>
-                </div>
+                {this.switchContactView()}
             </div>
             <div className="card">
               <div className="card-header">
@@ -171,7 +165,7 @@ class UserProfile extends React.Component {
               <hr></hr>
               <h3> Upcoming Trips </h3>
               <hr></hr>
-              {this.state.listings.map((listing) => <ReservationListing house = {listing} />)}
+              {this.state.listings.map((listing, index) => <ReservationListing key = {index} house = {listing} handleClick = {this.props.handleListingClick} />)}
             </div>
           </div>
         </div>

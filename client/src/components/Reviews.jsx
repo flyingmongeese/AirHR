@@ -1,9 +1,9 @@
 import React from 'react';
 
 let Reviews = ({listing}) => {	
-	console.log(listing);
-	var comments = JSON.parse(listing.description);
-	console.log(JSON.parse(listing.description));
+	// console.log(listing);
+	let comments = listing.description;
+	// console.log(JSON.parse(listing.description));
 	let image = null;
 	let body = null;
 	if (comments) {

@@ -83,7 +83,7 @@ class Reservations extends React.Component {
 
     var ratings = null;
     if (this.props.listing.rating !== null) {
-      ratings = <span id="inlineBlock">{this.props.listing.rating.map((star) => <i className="fa fa-star" id="starUpMargin" aria-hidden="true"></i>)} {this.props.listing.numberOfRatings}</span>
+      ratings = <span id="inlineBlock">{this.props.listing.rating.map((star, index) => <i key = {index} className="fa fa-star" id="starUpMargin" aria-hidden="true"></i>)} {this.props.listing.numberOfRatings}</span>
     }
 
   	return (

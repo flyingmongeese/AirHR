@@ -17,7 +17,7 @@ class Listing extends React.Component {
 
 	  var houseRules = null;
 	  if (this.props.listing.house_rules !== null) {
-	  	houseRules = this.props.listing.house_rules.map((rule) => <p>{rule}</p>)
+	  	houseRules = this.props.listing.house_rules.map((rule, index) => <p key = {index}>{rule}</p>)
 	  }
 
 	return (
