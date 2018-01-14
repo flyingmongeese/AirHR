@@ -100,7 +100,7 @@ class App extends React.Component {
     var app = this;
     axios.get('/profile')
       .then(response => {
-        console.log(response);
+        console.log('this response', response);
         app.setState({
           currentView: 'profileView',
           currentUser: response.data
@@ -124,9 +124,7 @@ class App extends React.Component {
     } else if (this.state.currentView === 'registrationView') {
       return <Registration handleRegistrationSubmit={ this.handleRegistrationSubmit.bind(this) } />
     } else if (this.state.currentView === 'profileView') {
-      return <UserProfile user={ this.state.currentUser } />
-    } else if (this.state.currentView === 'listingFormView') {
-      return <ListingForm />
+      return <UserProfile user={ this.state.currentUser } redirect={ this.handleNavChange.bind(this) } />
     }
   }
 

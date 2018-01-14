@@ -29,7 +29,7 @@ render(){
               <div className="card-body">
                 <form className="form-inline">
                   <label>Currency</label>
-                  <select class="custom-select my-1 mr-sm-2">
+                  <select className="custom-select my-1 mr-sm-2">
                     <option selected> Choose... </option>
                     <option value="1">US Dollars</option>
                     <option value="2">Swiss Francs</option>
