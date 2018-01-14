@@ -52,7 +52,9 @@ class SearchView extends React.Component {
               </div>
             </div> 
             <div className="col-md-4">
+
              <GoogleMap State={State} city={city} listings={this.state.listings} />
+
             </div>
           </div>
   	    </div> 
