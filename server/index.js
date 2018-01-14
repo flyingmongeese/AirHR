@@ -163,9 +163,11 @@ app.patch('/profile', (req, res) => {
       toUpdate.push(req.body[req.body.fields[i]]);
     }
     
+
     db.updateUserProfile([req.user, req.body.fields, toUpdate], (error, result) => {
-      if (error) { console.error(error) }
-      else {
+      if (error) { 
+        console.error(error) 
+      } else {
         console.log(result);
       }
     });
@@ -193,7 +195,7 @@ app.post('/dates', (req, res) => {
   let fromDate = req.body.fromDate;
   let toDate = req.body.toDate;
   let id = req.body.id;
-  let userId = req.user;
+  let userId = req.user.userid;
   if (!req.isAuthenticated()) {
     res.send('not logged in');
   } else {
