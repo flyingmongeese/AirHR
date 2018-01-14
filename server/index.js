@@ -142,14 +142,8 @@ app.get('/profile', (req, res) => {
   if (!req.isAuthenticated()) {
     res.status(401).end();
   } else {
-    var id;
-    if (typeof req.user === 'number') {
-      id = req.user;
-    } else if (typeof req.user === 'object') {
-      id = req.user.userid;
-    }
-
-    db.getUserProfile(id, (error, result) => {
+    console.log('LOOK AT MEEEEEEEEEEEEEEEEEEEEE', req.user)
+    db.getUserProfile(req.user.userid, (error, result) => {
       if (error) {
         console.error(error);
       } else {
@@ -169,15 +163,8 @@ app.patch('/profile', (req, res) => {
     for (var i = 0; i < req.body.fields.length; i++) {
       toUpdate.push(req.body[req.body.fields[i]]);
     }
-
-    var id;
-    if (typeof req.user === 'number') {
-      id = req.user;
-    } else if (typeof req.user === 'object') {
-      id = req.user.userid;
-    }
     
-    db.updateUserProfile([id, req.body.fields, toUpdate], (error, result) => {
+    db.updateUserProfile([req.user.userid, req.body.fields, toUpdate], (error, result) => {
       if (error) { console.error(error) }
       else {
         console.log(result);
@@ -189,13 +176,8 @@ app.patch('/profile', (req, res) => {
 
 app.get('/reservations', (req, res) => {
   // default post
-  // let userId = req.user;
-  var userId;
-    if (typeof req.user === 'number') {
-      id = req.user;
-    } else if (typeof req.user === 'object') {
-      id = req.user.userid;
-    }
+  let userId = req.user.userid;
+
   db.getReservationsByUser(userId, (err, result) => {
     if (err) {
       console.log(err);
@@ -212,7 +194,7 @@ app.post('/dates', (req, res) => {
   let fromDate = req.body.fromDate;
   let toDate = req.body.toDate;
   let id = req.body.id;
-  let userId = req.user;
+  let userId = req.user.userid;
   if (!req.isAuthenticated()) {
     res.send('not logged in');
   } else {
