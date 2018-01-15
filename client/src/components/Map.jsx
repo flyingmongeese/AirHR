@@ -3,9 +3,10 @@ import HouseListing from './HouseListing.jsx';
 
 const axios = require('axios');
 
-// const maps_API_KEY = require('../../../server/config/mapsAPI.js').maps_API_KEY;
-const maps_API_KEY = process.env.MAPS_API_KEY;
+var maps_API_KEY = require('../../../server/config/mapsAPI.js').maps_API_KEY;;
 console.log('MAPS API KEY IS', maps_API_KEY);
+
+process.env.maps_API_KEY
 
 class GoogleMap extends React.Component {
   	
@@ -16,7 +17,7 @@ class GoogleMap extends React.Component {
 
   render() {
 
-
+    console.log('map api: ', process.env.maps_API_KEY)
 
     // console.log('listing props, ', this.props.listings)
   	return (
@@ -25,7 +26,7 @@ class GoogleMap extends React.Component {
               <iframe  
                 width="100%"
                 height="500"
-                src={`https://www.google.com/maps/embed/v1/place?key=${maps_API_KEY}&q=${this.props.city}+${this.props.State}`} 
+                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.maps_API_KEY}&q=${this.props.city}+${this.props.State}`} 
                 ></iframe>
               </div>
 
