@@ -6,7 +6,7 @@ const axios = require('axios');
 var maps_API_KEY = require('../../../server/config/mapsAPI.js').maps_API_KEY;;
 console.log('MAPS API KEY IS', maps_API_KEY);
 
-process.env.maps_API_KEY = maps_API_KEY;
+process.env.maps_API_KEY
 
 class GoogleMap extends React.Component {
   	
@@ -17,7 +17,7 @@ class GoogleMap extends React.Component {
 
   render() {
 
-    console.log('map api: ', process.env)
+    console.log('map api: ', process.env.maps_API_KEY)
 
     // console.log('listing props, ', this.props.listings)
   	return (
