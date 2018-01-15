@@ -35,12 +35,12 @@ const client = new Client({
 
 client.connect();
 
-// client.query('DROP TABLE IF EXISTS users');
+client.query('DROP TABLE IF EXISTS users');
 // client.query('DROP TABLE IF EXISTS reservation');
 // client.query('DROP TABLE IF EXISTS listings');
 // client.query('DROP TABLE IF EXISTS session');
 
-let createUsers = `CREATE TABLE IF NOT EXISTS users (
+let createUsers = `CREATE TABLE users (
   id SERIAL,
   username TEXT UNIQUE,
   password TEXT,
@@ -306,7 +306,7 @@ let findUser = (username, callback) => {
 }
 
 let getUserProfile = (user, callback) => {
-  var queryStr = `SELECT id, username, email, phone FROM users WHERE id=${user}`;
+  var queryStr = `SELECT (id, username, email, phone) FROM users WHERE id=${user}`;
   
   client.query(queryStr, (error, result, fields) => {
     if (error) {
