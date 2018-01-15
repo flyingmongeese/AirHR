@@ -3,8 +3,8 @@ import HouseListing from './HouseListing.jsx';
 
 const axios = require('axios');
 
-// const maps_API_KEY = require('../../../server/config/mapsAPI.js').maps_API_KEY;
-const maps_API_KEY = process.env.MAPS_API_KEY;
+const maps_API_KEY = require('../../../server/config/mapsAPI.js').maps_API_KEY;
+// const maps_API_KEY = process.env.MAPS_API_KEY;
 console.log('MAPS API KEY IS', maps_API_KEY);
 
 class GoogleMap extends React.Component {
