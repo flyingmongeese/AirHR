@@ -120,7 +120,7 @@ app.get('/listings', (req, res) => {
 
 app.get('/listings/:userId', (req, res) => {
   
-  db.getListingsByOwner(req.params.userId, (err, results) => {
+  db.getPropertiesByUser(req.params.userId, (err, results) => {
     if (err) {
       console.log(err);
     } else {
@@ -129,8 +129,8 @@ app.get('/listings/:userId', (req, res) => {
   })
 })
 
-app.get('/listings/:cityName', (req, res) => {
-  console.log('in get req', req.params.cityName)
+app.get('/listings/city/:cityName', (req, res) => {
+  // console.log('in get req', req.params.cityName)
   db.getListingsByCity(req.params.cityName, (err, results) => {
     if (err) {
       console.log(err);

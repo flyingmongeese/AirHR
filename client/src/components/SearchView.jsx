@@ -19,7 +19,8 @@ class SearchView extends React.Component {
   componentDidMount() {
     
     let instance = this;
-    axios.get(`/listings/${instance.props.searchTerm}`).then(function(response) {
+    // console.log('searching for', instance.props.searchTerm)
+    axios.get(`/listings/city/${instance.props.searchTerm}`).then(function(response) {
       instance.setState({
         listings: response.data.rows
       })
