@@ -1,3 +1,5 @@
+//GENERATES FAKE DATA TO TEST DATABASE
+
 const StatesAndCities = require('./ArrayLibrary.js').statesAndCities;
 
 var reviews = ['There were monsters under the bed!', 
@@ -95,15 +97,11 @@ class Listing  {
   }
 }
 module.exports.Generator = function(array) {
-
-    // console.log('this is the array: ', array)
   for(var i = 1; i <= 50; i++) {
     var imageURL = 'sampleData/images/image-' + (randomNumber(0, 29)).toString()+'.jpg';
     var imageURL2 = 'sampleData/images/image-' + (randomNumber(0, 29)).toString()+'.jpg';
     var tempListing = new Listing(i);
     tempListing.images.push(imageURL, imageURL2)
-    //console.log('this is the listing: ', tempListing)
-    // console.log(',')
     array.push(tempListing)
   }
 }
