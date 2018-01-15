@@ -8,24 +8,27 @@ class ConfirmView extends React.Component {
   	super(props);
   }
 
-  handleButtonClick() {
-
-  }
-
 
   render() {
   	return (
 
 
-  		<div> 
-
+  		<div className = 'row centerDiv'> 
+  		  <div className = 'centerDiv'> 
+  			<br />
+  		  	<br />
+  		  	<br />
+  		  	<br />
+  		  	<br />
+  		  	<br />
+  		  	<br />
+  		  	<br />
+  		  	<br />
+  		  	<br />
   			<h3> Confirmed! Your Listing Is Now Public On Airdnb </h3>
-  			<span> <button> Click to view your listing </button> </span>
-
-
-
-
-
+  			<span> View Your Newly Created Listing From Your <span className = 'green' onClick = {() => this.props.handleProfClick()}> Profile Page </span> </span>
+  		  
+  		  </div>
 
   		</div>
 

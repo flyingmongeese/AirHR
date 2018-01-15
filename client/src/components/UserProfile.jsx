@@ -164,7 +164,7 @@ class UserProfile extends React.Component {
               </div>
                 <div className="card-body">
                   <h5 className="card-title">User</h5>
-                  <p className="card-text">PPHSHHSHTHTHHTT</p>
+                  <p className="card-text"></p>
                   <a href="#" className="btn btn-danger">Add more about me</a>
                 </div>
               </div>

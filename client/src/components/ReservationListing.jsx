@@ -23,7 +23,7 @@ class ReservationListing extends React.Component {
     }
 
     var isoDate = new Date().toISOString()
-    
+    var fromDateObject = Date.parse(this.props.house.reserved_dates[0])
 
     var dateToReservation = Math.abs(fromDateObject - Date.parse(isoDate))
     var duration = moment.duration(dateToReservation, 'milliseconds');
@@ -33,11 +33,10 @@ class ReservationListing extends React.Component {
 
     var date = new Date();
     var year = date.getFullYear();
-    if (this.props.house.reserved_dates !== null) {
-      var fromDate = this.props.house.reserved_dates[0].split('T')[0].slice(5) +'-'+year;
-      var toDate = this.props.house.reserved_dates[1].split('T')[0].slice(5) +'-'+year;
-      var fromDateObject = Date.parse(this.props.house.reserved_dates[0])
-    }
+    
+    var fromDate = this.props.house.reserved_dates[0].split('T')[0].slice(5) +'-'+year;
+    var toDate = this.props.house.reserved_dates[1].split('T')[0].slice(5) +'-'+year;
+
 
     var numberOfRatings = randomNumber(1,10000);
 
