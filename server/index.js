@@ -163,9 +163,11 @@ app.patch('/profile', (req, res) => {
       toUpdate.push(req.body[req.body.fields[i]]);
     }
     
+
     db.updateUserProfile([req.user, req.body.fields, toUpdate], (error, result) => {
-      if (error) { console.error(error) }
-      else {
+      if (error) { 
+        console.error(error); 
+      } else {
         console.log(result);
       }
     });
