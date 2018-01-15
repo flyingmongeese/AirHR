@@ -306,7 +306,7 @@ let findUser = (username, callback) => {
 }
 
 let getUserProfile = (user, callback) => {
-  var queryStr = `SELECT (id, username, email, phone) FROM users WHERE id=${user}`;
+  var queryStr = `SELECT id, username, email, phone FROM users WHERE id=${user}`;
   
   client.query(queryStr, (error, result, fields) => {
     if (error) {
