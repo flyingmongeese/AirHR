@@ -1,3 +1,5 @@
+//Generates cities by state for Testing, generating Data.
+
 var stateCities = require('state-cities');
  var statesAndCities = {
    "AL": stateCities.getCities("Alabama"),
