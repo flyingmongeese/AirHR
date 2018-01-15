@@ -10,7 +10,8 @@
     "start": "node server/index.js",
     "react-dev": "webpack -d --watch",
     "build": "webpack --config ./webpack.config.js --progress --colors",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "test": "mocha"
   },
   "dependencies": {
     "axios": "^0.17.1",
