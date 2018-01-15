@@ -6,14 +6,11 @@
   <script src="lib/mocha/mocha.js"></script>
   <script src="lib/chai/chai.js"></script>
   <script src="lib/sinon/sinon.js"></script>
-  <!-- <script src="client/bower_components/underscore/underscore.js"></script>
-  <script src="client/bower_components/jquery/dist/jquery.js"></script> -->
-
 
   <script>
     mocha.setup('bdd');
     var expect = chai.expect;
-    $(function() {
+    (function() {
       window.mochaPhantomJS ? mochaPhantomJS.run() : mocha.run();
     });
   </script>
@@ -23,6 +20,7 @@
 
   <script src="spec/chatterboxSpec.js"></script> -->
 
+  <script src="spec/airDnB.js"></script>
 
   
 
@@ -33,7 +31,7 @@
 
   <div id="main">
     <h1>chatterbox</h1>
-    <div class="spinner"><img src="client/images/spiffygif_46x46.gif"></div>
+    <div class="spinner"></div>
     <div id="rooms">
       Room:
       <select id="roomSelect">
